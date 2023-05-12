@@ -277,6 +277,91 @@ a:hover {
   font-size: 1.5rem;
 }
 
+.course-box {
+  background-color: var(--white-color);
+  box-shadow: 0 0 19px rgba(168, 172, 185, 0.3);
+  border-radius: 1rem;
+  margin: 2rem 0;
+  transition: all 0.4s ease;
+}
+.course-box:hover {
+  transform: translateY(-0.6rem);
+}
+.course-box__img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+.course-box__main {
+  padding: 1.2rem;
+}
+.course-box__title {
+  display: block;
+  padding-bottom: 1rem;
+  font-size: 1.8rem;
+}
+.course-box__rating-teacher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.course-box__teacher {
+  display: flex;
+  align-items: center;
+}
+.course-box__teacher-icon {
+  font-size: 1.8rem;
+  color: #6c757d;
+}
+.course-box__teacher-link {
+  color: #6c757d;
+  font-size: 1.2rem;
+  margin-right: 0.4rem;
+}
+.course-box__rating {
+}
+.course-box__star {
+  margin: -0.2rem;
+}
+.course-box__status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.course-box__users {
+}
+.course-box__users-icon {
+  color: #6c757d;
+  font-size: 1.6rem;
+}
+.course-box__users-text {
+  color: #6c757d;
+  font-size: 1.4rem;
+}
+.course-box__price {
+  color: #6c757d;
+  font-size: 1.8rem;
+}
+.course-box__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.3rem 0;
+  border-top: 1px solid #e8e8e8;
+}
+.course-box__footer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+.course-box__footer-icon {
+  font-size: 1.8rem;
+  margin-right: 0.5rem;
+}
+
 /* ========================Finish Lateset Courses Styles ============== */
 
 /* ======== Start Helper Class ==== */
