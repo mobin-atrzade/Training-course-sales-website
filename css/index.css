@@ -364,6 +364,22 @@ a:hover {
 
 /* ========================Finish Lateset Courses Styles ============== */
 
+/* ========================Start About Us Styles ============== */
+
+.about-us {
+  margin: 6rem 0;
+}
+.about-us__header {
+  display: flex;
+  flex-direction: column;
+}
+.about-us__subtitle {
+  color: #9c9c9c;
+  font-size: 1.5rem;
+}
+
+/* ========================Finish About Us Styles ============== */
+
 /* ======== Start Helper Class ==== */
 .title {
   font-size: 2.3rem;
