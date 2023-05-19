@@ -401,13 +401,27 @@ a:hover {
 
 /* ========================Finish About Us Styles ============== */
 
-/* ========================Start Popular Courses Styles ============== */
+/* ========================Start Popular and PreSell Courses Styles ============== */
 
-.popular-courses {
+.popular-courses,
+.presell-courses {
   margin: 5rem 0;
 }
+.popular-courses__slider .course-box,
+.presell-courses__slider .course-box {
+  margin: 0 1.3rem;
+  box-shadow: 0 0 10px rgba(168, 172, 185, 0.3);
+}
+.popular-courses__slider .course-box:hover,
+.presell-courses__slider .course-box:hover {
+  transform: none;
+}
+.popular-courses__slider,
+.presell-courses__slider {
+  margin: 3rem 0;
+}
 
-/* ========================Finish Popular Courses Styles ============== */
+/* ========================Finish Popular and PreSell Courses Styles ============== */
 
 /* ======== Start Helper Class ==== */
 .title {
