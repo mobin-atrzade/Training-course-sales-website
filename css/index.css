@@ -496,8 +496,6 @@ a:hover {
 
 /* ========================Start Footer Styles ============== */
 
-.footer {
-}
 .footer-widgets {
   background-color: #f0f2f7;
   border-radius: 1rem;
@@ -505,7 +503,18 @@ a:hover {
   position: relative;
   margin-bottom: 5rem;
 }
-.footer-widgets__item {
+.footer-widgets::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -1.5rem;
+  margin: 0 auto;
+  height: 4rem;
+  width: 50rem;
+  background-color: var(--primary-color);
+  border-radius: 5rem;
+  z-index: -1;
 }
 .footer-widgets__title {
   display: block;
@@ -513,6 +522,17 @@ a:hover {
   font-weight: bold;
   margin-bottom: 2rem;
   position: relative;
+}
+.footer-widgets__title::before {
+  content: "";
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--primary-color);
+  right: 1rem;
+  opacity: 0.3;
+  border-radius: 0.7rem;
+  transform: rotate(45deg);
 }
 .footer-widgets__text {
   color: #7d7e7f;
