@@ -5,6 +5,7 @@
 @import "./navbar.css";
 @import "./course-box.css";
 @import "./footer.css";
+@import "./pagination.css";
 
 /* =========================== Start Courses TopBar Section Styles ========== */
 
@@ -113,35 +114,3 @@
 }
 
 /* =========================== Finish Courses TopBar Section Styles ========== */
-
-/* =========================== Start Courses Pagination Styles ========== */
-
-.courses-pagination {
-  margin: 3rem 0;
-}
-.courses-pagination__list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.courses-pagination__link {
-  border-radius: 0.5rem;
-  width: 4rem;
-  height: 4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  background-color: #f0f0f1;
-  margin: 0 0.5rem;
-}
-.courses-pagination__link:hover {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-.courses-pagination__link--active {
-  background-color: var(--primary-color);
-  color: var(--white-color);
-}
-
-/* =========================== Finish Courses Pagination Styles ========== */
