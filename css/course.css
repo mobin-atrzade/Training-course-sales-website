@@ -5,3 +5,49 @@
 @import "./navbar.css";
 @import "./course-box.css";
 @import "./footer.css";
+
+/* =========================== Start BreadCrumb Section Styles ========== */
+
+.breadcrumb {
+  margin-bottom: 2rem;
+}
+.breadcrumb__content {
+  display: flex;
+  background-color: #f0f2f7;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+}
+.breadcrumb__content-home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  background-color: var(--white-color);
+  border-radius: 1rem;
+}
+.breadcrumb__home-icon {
+  font-size: 1.8rem;
+  color: #909aa7;
+}
+.breadcrumb__list {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.breadcrumb__link {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #7f8187;
+}
+.breadcrumb__link:hover {
+  color: #7f8187;
+}
+.breadcrumb__icon {
+  color: #7f8187;
+  font-size: 1.5rem;
+  margin: 0 0.7rem;
+}
+
+/* =========================== Finish BreadCrumb Section Styles ========== */
