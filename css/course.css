@@ -89,3 +89,37 @@
 }
 
 /* =========================== Finish Course Info Section Styles ========== */
+
+/* =========================== Start Course Boxes Styles ========== */
+
+.course-boxes__box {
+  display: flex;
+  padding: 1.8rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+  margin: 1rem 0;
+}
+.course-boxes__box-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.course-boxes__box-right-icon {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+}
+.course-boxes__box-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.5rem;
+}
+.course-boxes__box-left-title {
+  color: #858c96;
+  font-size: 1.6rem;
+}
+.course-boxes__box-left-subtitle {
+  font-size: 1.6rem;
+  color: #7d7d7f;
+}
+
+/* =========================== Finish Course Boxes Styles ========== */
