@@ -154,3 +154,38 @@
   background-color: #1fbd50;
 }
 /* =========================== Finish Course Progress Styles ========== */
+
+/* =========================== Start Course Introduction Styles ========== */
+
+.introduction {
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+}
+.introduction__img {
+  margin-top: 3rem;
+  display: block;
+  border-radius: 1rem;
+}
+.introduction__text {
+  margin-top: 2rem;
+  color: #7a7a7a;
+  font-size: 1.5rem;
+}
+.introduction__btns {
+  margin-top: 4rem;
+}
+.introduction__btns-item {
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+  transition: all 400ms ease;
+}
+.introduction__btns-item:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+/* =========================== Finish Course Introduction Styles ========== */
