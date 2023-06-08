@@ -246,3 +246,62 @@
 }
 
 /* =========================== Finish Course Introduction Styles ========== */
+
+/* =========================== Start Teacher Details Styles ========== */
+
+.teacher-details {
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+  margin-top: 2rem;
+}
+.techer-details__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.techer-details__header-right {
+  display: flex;
+  align-items: center;
+}
+.techer-details__header-img {
+  width: 62px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 2px 2px 20px #00000021;
+}
+.techer-details__header-titles {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2rem;
+}
+.techer-details__header-link {
+  color: #7b868a;
+}
+.techer-details__header-skill {
+  color: #7b868a;
+  font-size: 1.2rem;
+}
+.techer-details__header-left {
+  display: flex;
+  align-items: center;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.techer-details__header-icon {
+  font-size: 1.8rem;
+}
+.techer-details__header-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-right: 0.4rem;
+}
+.techer-details__footer {
+  color: #7b868a;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+/* =========================== Finish Teacher Details Styles ========== */
