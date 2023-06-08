@@ -123,3 +123,33 @@
 }
 
 /* =========================== Finish Course Boxes Styles ========== */
+
+/* =========================== Start Course Progress Styles ========== */
+.course-progress {
+  background-color: #f0f2f7;
+  border-radius: 1rem;
+  margin: 3rem 0;
+  padding: 2rem 2rem 1.2rem 2rem;
+}
+.course-progress__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.course-progress__icon {
+  font-size: 2.5rem;
+  color: #7b868a;
+}
+.course-progress__title {
+  margin-right: 1.5rem;
+  color: #7b868a;
+  font-size: 1.5rem;
+}
+.course-progress__bar {
+  height: 1rem;
+  border-radius: 10rem;
+}
+.progress-bar {
+  background-color: #1fbd50;
+}
+/* =========================== Finish Course Progress Styles ========== */
