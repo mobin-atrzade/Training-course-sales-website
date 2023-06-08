@@ -188,4 +188,61 @@
   color: var(--white-color);
   background-color: var(--primary-color);
 }
+
+.introduction__topic {
+  margin-top: 4rem;
+}
+.accordion {
+  margin-bottom: 2rem;
+}
+.accordion-item {
+  background-color: #f7f9fa;
+}
+.accordion-button {
+  background-color: #f7f9fa;
+  font-size: 1.5rem;
+  padding: 1.25rem;
+}
+.accordion-button:not(.collapsed) {
+  background-color: #f7f9fa;
+}
+.accordion-button::after {
+  position: absolute;
+  left: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  background-position: center;
+}
+.introduction__accordion-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.25rem;
+}
+.introduction__accordion__right {
+  display: flex;
+  align-items: center;
+}
+.introduction__accordion-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 1px solid #bfbfbf;
+  color: #656464;
+  border-radius: 50%;
+}
+.introduction__accordion-icon {
+  margin: 0 1.5rem;
+  color: #939aa3;
+  font-size: 1.8rem;
+}
+.introduction__accordion-link {
+  color: #161616;
+}
+.introduction__accordion-time {
+  color: #7a7a7a;
+}
+
 /* =========================== Finish Course Introduction Styles ========== */
