@@ -305,3 +305,34 @@
 }
 
 /* =========================== Finish Teacher Details Styles ========== */
+
+/* =========================== Start SideBar Styles ========== */
+
+.courses-info {
+  position: sticky;
+  top: 2rem;
+}
+.course-info {
+  border-radius: 0.5rem;
+  padding: 2.2rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+  border: 1px solid #f2f2f2;
+}
+.course-info__register {
+  text-align: center;
+  background-color: #1fbd50;
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 12px rgba(31, 189, 80, 36%);
+}
+.course-info__register-title {
+  font-size: 1.7rem;
+  color: var(--white-color);
+  font-weight: bold;
+}
+.course-info__register-icon {
+  font-size: 2rem;
+}
+
+/* =========================== Finish SideBar Styles ========== */
