@@ -334,5 +334,59 @@
 .course-info__register-icon {
   font-size: 2rem;
 }
+.course-info__total {
+}
+.course-info__total-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 2px solid #f0f2f7;
+}
+.course-info__total-sale {
+}
+.course-info__total-sale-icon {
+  font-size: 2.7rem;
+  color: #555555;
+}
+.course-info__total-sale-text {
+  color: #7f8187;
+}
+.course-info__total-sale-number {
+  color: var(--white-color);
+  background-color: #c4c7cf;
+  border-radius: 0.4rem;
+  padding: 0.3rem 1.2rem;
+}
+.course-info__total-bottom {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 2rem;
+  color: #7b868a;
+}
+.course-info__total-comment,
+.course-info__total-view {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.course-info__total-comment::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: #e5e5e5;
+  left: -3rem;
+}
+.course-info__total-comment-text,
+.course-info__total-view-text {
+  font-size: 1.4rem;
+  margin-right: 1rem;
+}
+.course-info__total-view-icon,
+.course-info__total-comment-icon {
+  font-size: 2.2rem;
+}
 
 /* =========================== Finish SideBar Styles ========== */
