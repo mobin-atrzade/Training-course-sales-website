@@ -418,5 +418,28 @@
   font-size: 1.5rem;
   color: #7d7d7f;
 }
+.course-info__courses-title {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--dark-color);
+}
+.course-info__courses-item {
+  margin-bottom: 2rem;
+}
+.course-info__courses-link {
+  display: flex;
+  align-items: center;
+}
+.course-info__courses-img {
+  width: 70px;
+  border-radius: 0.5rem;
+}
+.course-info__courses-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #8d8d8d;
+  margin-right: 0.5rem;
+}
 
 /* =========================== Finish SideBar Styles ========== */
