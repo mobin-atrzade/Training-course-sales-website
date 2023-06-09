@@ -388,5 +388,26 @@
 .course-info__total-comment-icon {
   font-size: 2.2rem;
 }
+.course-info__header-short-url {
+  display: flex;
+  align-items: center;
+  color: #7b868a;
+}
+.course-info__header-short-url-icon {
+  font-size: 2rem;
+}
+.course-info__header-short-url-text {
+  font-size: 1.7rem;
+  margin-right: 0.5rem;
+}
+.course-info__short-url {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border: 1px solid #dcdcdc;
+  color: #a7a7a7;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+}
 
 /* =========================== Finish SideBar Styles ========== */
