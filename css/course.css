@@ -7,6 +7,7 @@
 @import "./helper.css";
 @import "./footer.css";
 @import "./breadcrumb.css";
+@import "./sidebarCoursesBox.css";
 
 /* =========================== Start Course Info Section Styles ========== */
 
@@ -263,17 +264,6 @@
 
 /* =========================== Start SideBar Styles ========== */
 
-.courses-info {
-  position: sticky;
-  top: 2rem;
-}
-.course-info {
-  border-radius: 0.5rem;
-  padding: 2.2rem;
-  margin-top: 1rem;
-  box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
-  border: 1px solid #f2f2f2;
-}
 .course-info__register {
   text-align: center;
   background-color: #1fbd50;
@@ -363,38 +353,6 @@
   color: #a7a7a7;
   border-radius: 0.5rem;
   font-size: 1.4rem;
-}
-.course-info__topic-title {
-  display: block;
-  color: var(--dark-color);
-  font-size: 1.8rem;
-}
-.course-info__topic-text {
-  font-size: 1.5rem;
-  color: #7d7d7f;
-}
-.course-info__courses-title {
-  display: block;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  color: var(--dark-color);
-}
-.course-info__courses-item {
-  margin-bottom: 2rem;
-}
-.course-info__courses-link {
-  display: flex;
-  align-items: center;
-}
-.course-info__courses-img {
-  width: 70px;
-  border-radius: 0.5rem;
-}
-.course-info__courses-text {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #8d8d8d;
-  margin-right: 0.5rem;
 }
 
 /* =========================== Finish SideBar Styles ========== */
