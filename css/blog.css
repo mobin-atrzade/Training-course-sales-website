@@ -8,3 +8,22 @@
 @import "./footer.css";
 @import "./breadcrumb.css";
 @import "./sidebarCoursesBox.css";
+
+.course-info {
+  overflow: hidden;
+}
+.course-info__courses-title {
+  position: relative;
+}
+.course-info__courses-title::before {
+  position: absolute;
+  content: "";
+  width: 22px;
+  height: 39px;
+  background-color: var(--primary-color);
+  transform: skewX(-10deg);
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 12px;
+  top: -5px;
+  right: -27px;
+}
