@@ -56,5 +56,15 @@
   font-size: 1.3rem;
   margin-right: 0.5rem;
 }
+.last-articles__list {
+  margin-top: 2rem;
+}
+.last-articles__item {
+  border-bottom: 1px solid #eeeeee;
+  padding: 1rem 0;
+}
+.last-articles__link {
+  font-size: 1.5rem;
+}
 
 /* ========================Finish Sidebar Articles Styles ============== */
