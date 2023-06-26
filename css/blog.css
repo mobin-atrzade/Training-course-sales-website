@@ -55,6 +55,8 @@
   font-size: 1.7rem;
   color: #7d7d7e;
 }
+.article__paragraph {
+}
 
 /* ========================Finish Article Details Styles ============== */
 
@@ -117,3 +119,12 @@
 }
 
 /* ========================Finish Sidebar Articles Styles ============== */
+
+/* ==========Start Helper Classes ===== */
+
+.paragraph {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  color: #7d7e7f;
+}
+/* ==========Finish Helper Classes ===== */
