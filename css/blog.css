@@ -9,6 +9,42 @@
 @import "./breadcrumb.css";
 @import "./sidebarCoursesBox.css";
 
+/* ========================Start Article Details Styles ============== */
+
+.article {
+  padding: 2.4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+}
+.article__title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: var(--dark-color);
+  border-bottom: 2px solid #f3f3f3;
+  padding-bottom: 1rem;
+}
+.article__header {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+}
+.article__header-item {
+  margin-left: 2rem;
+}
+.article__header-icon {
+  font-size: 1.7rem;
+  color: #c7c7c7;
+}
+.article__header-text {
+  font-size: 1.2rem;
+  color: #8f8f8f;
+}
+.article__banner {
+  margin-top: 4rem;
+}
+
+/* ========================Finish Article Details Styles ============== */
+
 /* ========================Start Sidebar Articles Styles ============== */
 
 .course-info {
