@@ -76,6 +76,26 @@
 .article-read__link:hover {
   text-decoration: underline;
 }
+.article__seconadary-banner {
+  display: block;
+  margin: 0 auto;
+}
+.article__section {
+  margin: 5rem 0;
+}
+.article-section__title {
+  font-size: 2.4rem;
+  color: #008c25;
+  font-weight: bold;
+  line-height: 1.2;
+}
+.article-section__text {
+  margin: 2rem 0;
+}
+.article-section__img {
+  display: block;
+  margin: 0 auto;
+}
 
 /* ========================Finish Article Details Styles ============== */
 
