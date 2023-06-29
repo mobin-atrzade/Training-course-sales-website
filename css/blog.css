@@ -96,6 +96,20 @@
   display: block;
   margin: 0 auto;
 }
+.article-social-media {
+  display: flex;
+  align-items: center;
+}
+.article-social-media__text {
+  font-size: 1.5rem;
+  color: #7d7e7f;
+}
+.article-social-media__link {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  color: #7b868a;
+}
 
 /* ========================Finish Article Details Styles ============== */
 
@@ -117,7 +131,7 @@
   border-top-left-radius: 8px;
   border-bottom-left-radius: 12px;
   top: -5px;
-  right: -27px;
+  right: -30px;
 }
 
 .sidebar-articles__list {
