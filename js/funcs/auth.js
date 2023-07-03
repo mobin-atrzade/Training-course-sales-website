@@ -1,4 +1,5 @@
 import {
+  saveIntoLocalStorage,
   showSwal
 } from "./utils.js";
 
@@ -35,7 +36,11 @@ const register = () => {
       }
       return res.json();
     })
-    .then((result) => console.log(result));
+    .then((result) => {
+      saveIntoLocalStorage('user', {
+        token: result.accessToken
+      })
+    });
 };
 
 export {
