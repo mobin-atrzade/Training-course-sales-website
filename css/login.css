@@ -154,3 +154,10 @@
 }
 
 /* ======================== Finish Login Page Styles ============== */
+
+/* =============== Library Custom Styles ===== */
+.swal-button-container {
+  display: flex;
+  justify-content: center;
+}
+/* =============== Library Custom Styles ===== */
