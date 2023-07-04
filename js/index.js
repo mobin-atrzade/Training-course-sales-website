@@ -30,7 +30,6 @@ function makeCounter(max, elem) {
         if (counter === max) {
             clearInterval(interval);
         }
-
         elem.innerHTML = counter;
         counter++;
     }, 0.5);

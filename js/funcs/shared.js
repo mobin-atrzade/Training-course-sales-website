@@ -26,11 +26,13 @@ const renderTopbarMenus = async () => {
 
     const res = await fetch(`http://localhost:4000/v1/menus/topbar`);
     const topBarMenus = await res.json();
+
     topBarList.innerHTML = "";
-    [...topBarMenus].splice(0, 6).map(menu => {
+    const shuffledArray = topBarMenus.sort((a, b) => 0.5 - Math.random());
+    shuffledArray.splice(0, 6).map(menu => {
         topBarList.innerHTML += `
             <li class="top-bar__item"><a href="#" class="top-bar__link">${menu.title}</a></li>
-        `
+         `
     })
 }
 

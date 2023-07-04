@@ -69,7 +69,6 @@ const login = () => {
     }
     return res.json()
   }).then(result => {
-    console.log(result);
     saveIntoLocalStorage("user", {
       token: result.accessToken
     })
@@ -79,11 +78,9 @@ const login = () => {
 
 const getMe = async () => {
   const token = getToken();
-
   if (!token) {
     return false
   }
-
   const res = await fetch(`http://localhost:4000/v1/auth/me`, {
     headers: {
       "Authorization": `Bearer ${token}`
