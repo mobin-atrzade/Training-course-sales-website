@@ -171,14 +171,15 @@
             </div>
             <form action="#" class="login-form">
                 <div class="login-form__username">
-                    <input type="text" placeholder="نام کاربری یا آدرس ایمیل" class="login-form__username-input" />
+                    <input type="text" placeholder="نام کاربری یا آدرس ایمیل" id="identifier"
+                        class="login-form__username-input" />
                     <i class="fa fa-user login-form__username-icon"></i>
                 </div>
                 <div class="login-form__password">
-                    <input type="text" placeholder="رمز عبور" class="login-form__password-input" />
+                    <input type="text" placeholder="رمز عبور" id="password" class="login-form__password-input" />
                     <i class="fa fa-lock-open login-form__password-icon"></i>
                 </div>
-                <button class="login-form__btn" type="submit">
+                <button class="login-form__btn" type="submit" id="login-btn">
                     <i class="fas fa-sign-out-alt login-form__btn-icon"></i>
                     <span class="login-form__btn-text">ورود</span>
                 </button>
@@ -294,6 +295,7 @@
 
     <script src="ventor/FontAwesome5/all.min.js"></script>
     <script src="ventor/SwiperSlider/swiper.js"></script>
+    <script src="js/login.js" type="module"></script>
 </body>
 
 </html>
