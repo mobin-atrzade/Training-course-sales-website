@@ -1,3 +1,5 @@
+import { getAndShowAllCourses } from "./funcs/shared.js";
+
 const $ = document;
 const landingTitle = $.querySelector('.landing__title');
 const landingCoursesCount = $.querySelector('#courses-count');
@@ -12,6 +14,7 @@ window.addEventListener('load', () => {
     makeCounter(40, landingCoursesCount);
     makeCounter(13_430, landingMinutesCount);
     makeCounter(2_105, landingUsersCount);
+    getAndShowAllCourses();
 })
 
 function typeWriter(text, index) {
