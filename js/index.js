@@ -1,6 +1,7 @@
 import {
     getAndShowAllCourses,
-    getAndShowPopularCourses
+    getAndShowPopularCourses,
+    getAndShowPresellCourses
 } from "./funcs/shared.js";
 
 const $ = document;
@@ -19,6 +20,7 @@ window.addEventListener('load', () => {
     makeCounter(2105, landingUsersCount);
     getAndShowAllCourses();
     getAndShowPopularCourses();
+    getAndShowPresellCourses();
 })
 
 function typeWriter(text, index) {
