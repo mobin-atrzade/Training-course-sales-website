@@ -1,5 +1,6 @@
 import {
     getAndShowAllCourses,
+    getAndShowArticles,
     getAndShowPopularCourses,
     getAndShowPresellCourses
 } from "./funcs/shared.js";
@@ -21,6 +22,7 @@ window.addEventListener('load', () => {
     getAndShowAllCourses();
     getAndShowPopularCourses();
     getAndShowPresellCourses();
+    getAndShowArticles();
 })
 
 function typeWriter(text, index) {

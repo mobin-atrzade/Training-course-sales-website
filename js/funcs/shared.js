@@ -182,8 +182,38 @@ const getAndShowPresellCourses = async () => {
     </div>
         `)
     })
-
     return presellCourses;
+}
+
+const getAndShowArticles = async () => {
+    const articlesWrapper = document.querySelector('#articles-wrapper');
+
+    const res = await fetch(`http://localhost:4000/v1/articles`);
+    const articles = await res.json();
+
+    articles.splice(0, 6).forEach((article) => {
+        articlesWrapper.insertAdjacentHTML('beforeend', `
+            <div class="col-4">
+            <div class="article-card">
+                <div class="article-card__header">
+                    <a href="#" class="article-card__link-img">
+                        <img src=http://localhost:4000/courses/covers/${article.cover} class="article-card__img" alt="Article Cover" />
+                    </a>
+                </div>
+                <div class="article-card__content">
+                    <a href="#" class="article-card__link">
+                        ${article.title}
+                    </a>
+                    <p class="article-card__text">
+                        ${article.description}
+                    </p>
+                    <a href="#" class="article-card__btn">بیشتر بخوانید</a>
+                </div>
+            </div>
+        </div>
+        `)
+    })
+    return articles;
 }
 
 export {
@@ -191,5 +221,6 @@ export {
     renderTopbarMenus,
     getAndShowAllCourses,
     getAndShowPopularCourses,
-    getAndShowPresellCourses
+    getAndShowPresellCourses,
+    getAndShowArticles
 };
