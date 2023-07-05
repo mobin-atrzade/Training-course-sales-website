@@ -1,4 +1,7 @@
-import { getAndShowAllCourses } from "./funcs/shared.js";
+import {
+    getAndShowAllCourses,
+    getAndShowPopularCourses
+} from "./funcs/shared.js";
 
 const $ = document;
 const landingTitle = $.querySelector('.landing__title');
@@ -12,9 +15,10 @@ window.addEventListener('load', () => {
 
     typeWriter(landingText, typeIndex);
     makeCounter(40, landingCoursesCount);
-    makeCounter(13_430, landingMinutesCount);
-    makeCounter(2_105, landingUsersCount);
+    makeCounter(13430, landingMinutesCount);
+    makeCounter(2105, landingUsersCount);
     getAndShowAllCourses();
+    getAndShowPopularCourses();
 })
 
 function typeWriter(text, index) {
