@@ -2,6 +2,7 @@ import {
     getMe
 } from "./auth.js";
 import {
+    getUrlParams,
     isLogin
 } from "./utils.js";
 
@@ -225,7 +226,7 @@ const getAndShowNavbarMenus = async () => {
     menus.forEach((menu) => {
         menusWrapper.insertAdjacentHTML('beforeend', `
             <li class="main-header__item">
-                <a href="#" class="main-header__link">${menu.title}   
+                <a href=category.html?cat=${menu.href} class="main-header__link">${menu.title}   
                 ${menu.submenus.length !== 0 ? `
                             <i class="fas fa-angle-down main-header__link-icon"></i>
                             <ul class="main-header__dropdown">
@@ -249,6 +250,14 @@ const getAndShowNavbarMenus = async () => {
     return menus;
 }
 
+const getAndShowCategoryCourses = async () => {
+    const categoryName = getUrlParams('cat');
+
+    const res = await fetch(`http://localhost:4000/v1/courses/category/${categoryName}`);
+    const courses = await res.json();
+    return courses;
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -256,5 +265,6 @@ export {
     getAndShowPopularCourses,
     getAndShowPresellCourses,
     getAndShowArticles,
-    getAndShowNavbarMenus
+    getAndShowNavbarMenus,
+    getAndShowCategoryCourses
 };

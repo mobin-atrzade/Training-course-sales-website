@@ -24,10 +24,18 @@ const isLogin = () => {
     return userInfos ? true : false;
 }
 
+const getUrlParams = (key) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const catParam = urlParams.get(key);
+    const frontEndParam = catParam.split('/').pop();
+    return frontEndParam;
+}
+
 export {
     showSwal,
     saveIntoLocalStorage,
     getFromLocalStorage,
     getToken,
-    isLogin
+    isLogin,
+    getUrlParams
 };
