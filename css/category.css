@@ -114,3 +114,60 @@
 }
 
 /* =========================== Finish Courses TopBar Section Styles ========== */
+
+/* =========================== Start Row Course Box Styles ========== */
+
+.course-box {
+  box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+  margin: 2rem 0;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.course__box-header {
+  display: flex;
+}
+
+.course__box-right-img {
+  height: 100%;
+  max-width: 350px;
+}
+
+.course__box-left {
+  padding: 1rem 1.5rem;
+}
+
+.course__box-left-link {
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding: 1rem 0;
+  display: block;
+}
+.course__box-left-center {
+  display: flex;
+  justify-content: space-between;
+}
+.course__box-left-teacher {
+  color: #7d7e7f;
+}
+.course__box-left-name {
+  font-size: 1.4rem;
+}
+.course__box-left-bottom {
+  margin: 1rem;
+}
+.course__box-left-des {
+  font-size: 1.5rem;
+  color: var(--dark-color);
+}
+.course__box-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.course__box-footer-right {
+  color: #7d7e7f;
+}
+.course__box-footer-left {
+  color: #7d7e7f;
+}
+
+/* =========================== Finish Row Course Box Styles ========== */
