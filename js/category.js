@@ -9,6 +9,8 @@ window.addEventListener('load', () => {
         let coursesShowType = 'row';
         const categoryCoursesWrapper = document.querySelector('#category-courses-wrapper');
         const coursesShowTypeIcons = document.querySelectorAll('.courses-top-bar__icon-parent');
+        const coursesFilteringSelections = document.querySelectorAll('.courses-top-bar__selection-item');
+        const selectionTitleElem = document.querySelector('.courses-top-bar__selection-title');
 
         // Show Category Courses By Row ShowType
         if (courses.length) {
@@ -18,7 +20,8 @@ window.addEventListener('load', () => {
                 <div class="alert alert-danger">هیچ دوره ای برای این دسته بندی وجود ندارد</div>
             `)
         }
-
+        
+        // Show Category Courses By Row ShowType (User Selection)
         coursesShowTypeIcons.forEach(coursesShowTypeIcon => {
             coursesShowTypeIcon.addEventListener('click', (event) => {
                 coursesShowTypeIcons.forEach(icon => icon.classList.remove('courses-top-bar__icon--active'))
@@ -33,5 +36,19 @@ window.addEventListener('load', () => {
                 }
             })
         })
+
+        // Show Category Courses By User Filtering Method
+        coursesFilteringSelections.forEach(coursesFilteringSelection => {
+            coursesFilteringSelection.addEventListener('click', (event) => {
+                coursesFilteringSelections.forEach(selectionElem => selectionElem.classList.remove('courses-top-bar__selection-item--active'));
+                event.target.classList.add('courses-top-bar__selection-item--active');
+                selectionTitleElem.innerHTML = '';
+                selectionTitleElem.insertAdjacentHTML('beforeend', `
+                    ${event.target.innerHTML}
+                    <i class="fas fa-angle-down courses-top-bar__selection__icon"></i>
+                `)
+            })
+        })
+
     })
 })
