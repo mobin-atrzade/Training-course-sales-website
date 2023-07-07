@@ -362,6 +362,37 @@ const inssertCourseBoxHtmlTemplate = (courses, showType, parentElement) => {
     }
 }
 
+const coursesSorting = (array, filterMethod) => {
+    let outputArray = [];
+
+    switch (filterMethod) {
+        case 'free': {
+            outputArray = array.filter(course => course.price === 0);
+            break;
+        }
+        case 'money': {
+            outputArray = array.filter(course => course.price !== 0);
+            break;
+        }
+        case 'first': {
+            outputArray = [...array].reverse();
+            break;
+        }
+        case 'last': {
+            outputArray = array;
+            break;
+        }
+        case 'default': {
+            outputArray = array;
+            break;
+        }
+        default: {
+            outputArray: array;
+        }
+    }
+    return outputArray;
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -371,5 +402,6 @@ export {
     getAndShowArticles,
     getAndShowNavbarMenus,
     getAndShowCategoryCourses,
-    inssertCourseBoxHtmlTemplate
+    inssertCourseBoxHtmlTemplate,
+    coursesSorting
 };

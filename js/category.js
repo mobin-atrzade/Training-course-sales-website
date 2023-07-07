@@ -1,4 +1,5 @@
 import {
+    coursesSorting,
     getAndShowCategoryCourses,
     inssertCourseBoxHtmlTemplate
 } from "./funcs/shared.js";
@@ -20,7 +21,7 @@ window.addEventListener('load', () => {
                 <div class="alert alert-danger">هیچ دوره ای برای این دسته بندی وجود ندارد</div>
             `)
         }
-        
+
         // Show Category Courses By Row ShowType (User Selection)
         coursesShowTypeIcons.forEach(coursesShowTypeIcon => {
             coursesShowTypeIcon.addEventListener('click', (event) => {
@@ -46,7 +47,11 @@ window.addEventListener('load', () => {
                 selectionTitleElem.insertAdjacentHTML('beforeend', `
                     ${event.target.innerHTML}
                     <i class="fas fa-angle-down courses-top-bar__selection__icon"></i>
-                `)
+                `);
+
+                let userFilteringSelection = event.target.dataset.key;
+                let shownCourses = coursesSorting([...courses], userFilteringSelection);
+                inssertCourseBoxHtmlTemplate(shownCourses, coursesShowType, categoryCoursesWrapper);
             })
         })
 
