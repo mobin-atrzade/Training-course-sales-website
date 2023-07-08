@@ -31,11 +31,17 @@ const getUrlParams = (key) => {
     return frontEndParam;
 }
 
+const searchInArray = (array, searchProperty, searchValue) => {
+    let outputArray = array.filter(item => item[searchProperty].includes(searchValue));
+    return outputArray;
+}
+
 export {
     showSwal,
     saveIntoLocalStorage,
     getFromLocalStorage,
     getToken,
     isLogin,
-    getUrlParams
+    getUrlParams,
+    searchInArray
 };

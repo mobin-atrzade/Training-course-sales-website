@@ -403,5 +403,5 @@ export {
     getAndShowNavbarMenus,
     getAndShowCategoryCourses,
     inssertCourseBoxHtmlTemplate,
-    coursesSorting
+    coursesSorting,
 };
