@@ -45,12 +45,12 @@ const getAndShowAllCourses = async () => {
         coursesContainer.insertAdjacentHTML("beforeend", `
         <div class="col-4">
         <div class="course-box">
-            <a href="#">
+            <a href="course.html?name=${course.shortName}">
                 <img src=http://localhost:4000/courses/covers/${course.cover} alt="course img"
                     class="course-box__img" />
             </a>
             <div class="course-box__main">
-                <a href="#" class="course-box__title">${course.name}</a>
+                <a href="course.html?name=${course.shortName}" class="course-box__title">${course.name}</a>
                 <div class="course-box__rating-teacher">
                     <div class="course-box__teacher">
                         <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
@@ -94,12 +94,12 @@ const getAndShowPopularCourses = async () => {
         popularCoursesWrapper.insertAdjacentHTML("beforeend", `
         <div class="swiper-slide">
         <div class="course-box">
-            <a href="#">
+            <a href="course.html?name=${course.shortName}">
                 <img src=http://localhost:4000/courses/covers/${course.cover} alt="course img"
                     class="course-box__img" />
             </a>
             <div class="course-box__main">
-                <a href="#" class="course-box__title">${course.name}</a>
+                <a href="course.html?name=${course.shortName}" class="course-box__title">${course.name}</a>
                 <div class="course-box__rating-teacher">
                     <div class="course-box__teacher">
                         <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
@@ -145,11 +145,11 @@ const getAndShowPresellCourses = async () => {
         presellCoursesWrapper.insertAdjacentHTML('beforeend', `
         <div class="swiper-slide">
         <div class="course-box">
-            <a href="#">
+            <a href="course.html?name=${course.shortName}">
                 <img src=http://localhost:4000/courses/covers/${course.cover} alt="course img" class="course-box__img" />
             </a>
             <div class="course-box__main">
-                <a href="#" class="course-box__title">${course.name}</a>
+                <a href="course.html?name=${course.shortName}" class="course-box__title">${course.name}</a>
                 <div class="course-box__rating-teacher">
                     <div class="course-box__teacher">
                         <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
@@ -266,12 +266,12 @@ const inssertCourseBoxHtmlTemplate = (courses, showType, parentElement) => {
             parentElement.insertAdjacentHTML('beforeend', `
             <div class="col-4">
             <div class="course-box">
-                <a href="#">
+                <a href="course.html?name=${course.shortName}">
                     <img src="images/courses/fareelancer.png" alt="course img"
                         class="course-box__img" />
                 </a>
                 <div class="course-box__main">
-                    <a href="#" class="course-box__title">${course.name}</a>
+                    <a href="course.html?name=${course.shortName}" class="course-box__title">${course.name}</a>
                     <div class="course-box__rating-teacher">
                         <div class="course-box__teacher">
                             <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
@@ -311,13 +311,13 @@ const inssertCourseBoxHtmlTemplate = (courses, showType, parentElement) => {
             <div class="course-box">
                 <div class="course__box-header">
                     <div class="course__box-right">
-                        <a class="course__box-right-link" href="#">
+                        <a class="course__box-right-link" href="course.html?name=${course.shortName}">
                             <img src=http://localhost:4000/courses/covers/${course.cover} class="course__box-right-img">
                         </a>
                     </div>
                     <div class="course__box-left">
                         <div class="course__box-left-top">
-                            <a href="#" class="course__box-left-link">${course.name}</a>
+                            <a href="course.html?name=${course.shortName}" class="course__box-left-link">${course.name}</a>
                         </div>
                         <div class="course__box-left-center">
                             <div class="course__box-left-teacher">
@@ -393,6 +393,14 @@ const coursesSorting = (array, filterMethod) => {
     return outputArray;
 }
 
+const getCourseDetails = async () => {
+    const courseShortName = getUrlParams('name');
+
+    const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}`);
+    const courseDetail = res.json();
+    return courseDetail;
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -404,4 +412,5 @@ export {
     getAndShowCategoryCourses,
     inssertCourseBoxHtmlTemplate,
     coursesSorting,
+    getCourseDetails
 };
