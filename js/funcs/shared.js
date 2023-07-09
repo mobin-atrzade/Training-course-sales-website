@@ -2,6 +2,7 @@ import {
     getMe
 } from "./auth.js";
 import {
+    getToken,
     getUrlParams,
     isLogin
 } from "./utils.js";
@@ -434,7 +435,7 @@ const getCourseDetails = async () => {
                     <i class="fab fa-youtube introduction__accordion-icon"></i>
                     ${
                         (session.free || courseDetail.isUserRegisteredToThisCourse) ? `
-                            <a href="#" class="introduction__accordion-link">
+                            <a href="episode.html?name=${courseDetail.shortName}&id=${session._id}" class="introduction__accordion-link">
                                 ${session.title}
                             </a>` 
                         :`
@@ -495,6 +496,19 @@ const getAndShowRelatedCourses = async () => {
     return relatedCourses;
 }
 
+const getSessionDetails = async () => {
+    const courseShortName = getUrlParams('name');
+    const sessionId = getUrlParams('id');
+
+    const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}/${sessionId}`, {
+        headers: {
+            Authorization: `Bearer ${getToken()}`
+        }
+    });
+    const sessionDetails = await res.json();
+    console.log(sessionDetails);
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -507,5 +521,6 @@ export {
     inssertCourseBoxHtmlTemplate,
     coursesSorting,
     getCourseDetails,
-    getAndShowRelatedCourses
+    getAndShowRelatedCourses,
+    getSessionDetails
 };
