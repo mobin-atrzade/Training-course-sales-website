@@ -403,6 +403,8 @@ const getCourseDetails = async () => {
     const courseStatusElem = $.querySelector('.course-boxes__box-left-subtitle');
     const courseSupportElem = $.querySelector('.course-boxes__box-left-subtitle--support');
     const courseLastUpdateElem = $.querySelector('.course-boxes__box-left-subtitle--last-update');
+    const courseCommentsCountElem = $.querySelector('.course-info__total-comment-text');
+    const courseStudentsCountElem = $.querySelector('.course-info__total-sale-number');
 
     const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}`);
     const courseDetail = await res.json();
@@ -415,7 +417,45 @@ const getCourseDetails = async () => {
     courseStatusElem.innerHTML = courseDetail.isComplete ? "تکمیل شده" : "در حال برگزاری";
     courseSupportElem.innerHTML = courseDetail.support;
     courseLastUpdateElem.innerHTML = courseDetail.updatedAt.slice(0, 10);
+    courseCommentsCountElem.innerHTML = `${courseDetail.comments.length} دیدگاه`;
+    courseStudentsCountElem.innerHTML = courseDetail.courseStudentsCount;
 
+
+    // Show Course Sessions
+    const sessionsWrapper = $.querySelector('.sessions-wrapper');
+    if (courseDetail.sessions.length) {
+        courseDetail.sessions.forEach((session, index) => {
+            sessionsWrapper.insertAdjacentHTML('beforeend', `
+                <div class="accordion-body introduction__accordion-body">
+                <div class="introduction__accordion__right">
+                    <span class="introduction__accordion-count">${index + 1}</span>
+                    <i class="fab fa-youtube introduction__accordion-icon"></i>
+                    <a href="#" class="introduction__accordion-link">
+                        ${session.title}
+                    </a>
+                </div>
+                <div class="introduction__accordion__left">
+                    <span class="introduction__accordion-time">${session.time}</span>
+                </div>
+            </div>
+            `)
+        })
+    } else {
+        sessionsWrapper.insertAdjacentHTML('beforeend', `
+                <div class="accordion-body introduction__accordion-body">
+                <div class="introduction__accordion__right">
+                    <span class="introduction__accordion-count"> -- </span>
+                    <i class="fab fa-youtube introduction__accordion-icon"></i>
+                    <a href="#" class="introduction__accordion-link">
+                        هنوز جلسه ای آپلود نشده
+                    </a>
+                </div>
+                <div class="introduction__accordion__left">
+                    <span class="introduction__accordion-time">00:00</span>
+                </div>
+                </div>
+            `)
+    }
 }
 
 export {
