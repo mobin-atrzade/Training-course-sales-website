@@ -267,7 +267,7 @@ const inssertCourseBoxHtmlTemplate = (courses, showType, parentElement) => {
             <div class="col-4">
             <div class="course-box">
                 <a href="course.html?name=${course.shortName}">
-                    <img src="images/courses/fareelancer.png" alt="course img"
+                    <img src="http://localhost:4000/courses/covers/${course.cover}" alt="course img"
                         class="course-box__img" />
                 </a>
                 <div class="course-box__main">
@@ -405,6 +405,7 @@ const getCourseDetails = async () => {
     const courseLastUpdateElem = $.querySelector('.course-boxes__box-left-subtitle--last-update');
     const courseCommentsCountElem = $.querySelector('.course-info__total-comment-text');
     const courseStudentsCountElem = $.querySelector('.course-info__total-sale-number');
+    const courseVideoCoverElem = $.querySelector('.course-info__video');
 
     const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}`);
     const courseDetail = await res.json();
@@ -419,6 +420,7 @@ const getCourseDetails = async () => {
     courseLastUpdateElem.innerHTML = courseDetail.updatedAt.slice(0, 10);
     courseCommentsCountElem.innerHTML = `${courseDetail.comments.length} دیدگاه`;
     courseStudentsCountElem.innerHTML = courseDetail.courseStudentsCount;
+    courseVideoCoverElem.setAttribute('poster', `http://localhost:4000/courses/covers/${courseDetail.cover}`)
 
 
     // Show Course Sessions
@@ -458,6 +460,31 @@ const getCourseDetails = async () => {
     }
 }
 
+const getAndShowRelatedCourses = async () => {
+    const courseShortName = getUrlParams('name');
+    const courseRelatedCoursesWrapper = document.querySelector('.course-info__courses-list');
+
+    const res = await fetch(`http://localhost:4000/v1/courses/related/${courseShortName}`);
+    const relatedCourses = await res.json();
+
+    if (relatedCourses.length) {
+        relatedCourses.forEach(course => {
+            courseRelatedCoursesWrapper.insertAdjacentHTML('beforeend', `
+                <li class="course-info__courses-item">
+                    <a href="course.html?name=${course.shortName}" class="course-info__courses-link">
+                        <img src="http://localhost:4000/courses/covers/${course.cover}" alt="Course Cover" class="course-info__courses-img">
+                        <span class="course-info__courses-text">${course.name}</span>
+                    </a>
+                </li>
+            `)
+        })
+    } else {
+
+    }
+
+    return relatedCourses;
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -469,5 +496,6 @@ export {
     getAndShowCategoryCourses,
     inssertCourseBoxHtmlTemplate,
     coursesSorting,
-    getCourseDetails
+    getCourseDetails,
+    getAndShowRelatedCourses
 };
