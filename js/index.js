@@ -20,11 +20,11 @@ window.addEventListener('load', () => {
     makeCounter(40, landingCoursesCount);
     makeCounter(13430, landingMinutesCount);
     makeCounter(2105, landingUsersCount);
+    getAndShowNavbarMenus();
     getAndShowAllCourses();
     getAndShowPopularCourses();
     getAndShowPresellCourses();
     getAndShowArticles();
-    getAndShowNavbarMenus();
 })
 
 function typeWriter(text, index) {

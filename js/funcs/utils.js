@@ -26,9 +26,8 @@ const isLogin = () => {
 
 const getUrlParams = (key) => {
     const urlParams = new URLSearchParams(window.location.search);
-    const catParam = urlParams.get(key);
-    const frontEndParam = catParam.split('/').pop();
-    return frontEndParam;
+    const getParam = urlParams.get(key);
+    return getParam.split('/').pop();
 }
 
 const searchInArray = (array, searchProperty, searchValue) => {

@@ -395,10 +395,27 @@ const coursesSorting = (array, filterMethod) => {
 
 const getCourseDetails = async () => {
     const courseShortName = getUrlParams('name');
+    let $ = document;
+    const courseTitleElem = $.querySelector('.course-info__title');
+    const courseDescElem = $.querySelector('.course-info__text');
+    const courseCategoryElem = $.querySelector('.course-info__link');
+    const courseRegisterInfoElem = $.querySelector('.course-info__register-title');
+    const courseStatusElem = $.querySelector('.course-boxes__box-left-subtitle');
+    const courseSupportElem = $.querySelector('.course-boxes__box-left-subtitle--support');
+    const courseLastUpdateElem = $.querySelector('.course-boxes__box-left-subtitle--last-update');
 
     const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}`);
-    const courseDetail = res.json();
-    return courseDetail;
+    const courseDetail = await res.json();
+    console.log(courseDetail);
+
+    courseTitleElem.innerHTML = courseDetail.name;
+    courseDescElem.innerHTML = courseDetail.description;
+    courseCategoryElem.innerHTML = courseDetail.categoryID.title;
+    courseRegisterInfoElem.insertAdjacentHTML('beforeend', courseDetail.isUserRegisteredToThisCourse ? 'دانشجو دوره هستید' : 'ثبت نام در دوره');
+    courseStatusElem.innerHTML = courseDetail.isComplete ? "تکمیل شده" : "در حال برگزاری";
+    courseSupportElem.innerHTML = courseDetail.support;
+    courseLastUpdateElem.innerHTML = courseDetail.updatedAt.slice(0, 10);
+
 }
 
 export {
