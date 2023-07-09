@@ -432,12 +432,25 @@ const getCourseDetails = async () => {
                 <div class="introduction__accordion__right">
                     <span class="introduction__accordion-count">${index + 1}</span>
                     <i class="fab fa-youtube introduction__accordion-icon"></i>
-                    <a href="#" class="introduction__accordion-link">
-                        ${session.title}
-                    </a>
+                    ${
+                        (session.free || courseDetail.isUserRegisteredToThisCourse) ? `
+                            <a href="#" class="introduction__accordion-link">
+                                ${session.title}
+                            </a>` 
+                        :`
+                            <span  class="introduction__accordion-link">
+                                ${session.title}
+                            </span>`
+                    }
                 </div>
                 <div class="introduction__accordion__left">
                     <span class="introduction__accordion-time">${session.time}</span>
+                    ${
+                        !(session.free || courseDetail.isUserRegisteredToThisCourse) ? `
+                            <i class="fa fa-lock introduction__accordion-icon m-0"></i>
+                        ` 
+                        :``
+                    }
                 </div>
             </div>
             `)
@@ -478,10 +491,7 @@ const getAndShowRelatedCourses = async () => {
                 </li>
             `)
         })
-    } else {
-
-    }
-
+    } else {}
     return relatedCourses;
 }
 
