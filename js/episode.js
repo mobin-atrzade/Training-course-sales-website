@@ -3,5 +3,7 @@ import {
 } from "./funcs/shared.js";
 
 window.addEventListener('load', () => {
-    getSessionDetails()
+    getSessionDetails().then(data => {
+        console.log(data);
+    })
 })

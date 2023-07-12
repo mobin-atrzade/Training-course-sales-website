@@ -499,14 +499,42 @@ const getAndShowRelatedCourses = async () => {
 const getSessionDetails = async () => {
     const courseShortName = getUrlParams('name');
     const sessionId = getUrlParams('id');
+    const sessionVideoElem = document.querySelector('.episode-content__video');
+    const courseSessionsListElem = document.querySelector('.sidebar-topics__list');
 
     const res = await fetch(`http://localhost:4000/v1/courses/${courseShortName}/${sessionId}`, {
         headers: {
             Authorization: `Bearer ${getToken()}`
         }
     });
-    const sessionDetails = await res.json();
-    console.log(sessionDetails);
+    const responseData = await res.json();
+    sessionVideoElem.setAttribute('src', `http://localhost:4000/courses/covers/${responseData.session.video}`);
+    responseData.sessions.forEach(session => {
+        courseSessionsListElem.insertAdjacentHTML('beforeend', `
+            <li class="sidebar-topics__list-item">
+                <div class="sidebar-topics__list-right">
+                <svg class="svg-inline--fa fa-circle-play sidebar-topics__list-item-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-play" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c-7.6 4.2-12.3 12.3-12.3 20.9V344c0 8.7 4.7 16.7 12.3 20.9s16.8 4.1 24.3-.5l144-88c7.1-4.4 11.5-12.1 11.5-20.5s-4.4-16.1-11.5-20.5l-144-88c-7.4-4.5-16.7-4.7-24.3-.5z"></path></svg>
+                ${
+                    session.free ? `
+                        <a class="sidebar-topics__list-item-link" href="episode.html?name=${courseShortName}&id=${sessionId}">${session.title}</a>
+                    ` : `
+                        <span class="sidebar-topics__list-item-link">${session.title}</span>
+                    `
+                }
+                </div>
+                <div class="sidebar-topics__list-left">
+                    <span class="sidebar-topics__list-item-time">${session.time}</span>
+                    ${
+                        !(session.free || responseData.isUserRegisteredToThisCourse) ? `
+                            <i class="fa fa-lock introduction__accordion-icon m-0"></i>
+                        ` 
+                        :``
+                    }
+                </div>
+            </li>
+        `)
+    })
+    return responseData;
 }
 
 export {
