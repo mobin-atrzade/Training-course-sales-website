@@ -1,4 +1,5 @@
 import {
+    getAndShowNavbarMenus,
     renderTopbarMenus,
     showUserNameInNavbar
 } from "./funcs/shared.js";

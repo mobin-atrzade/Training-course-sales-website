@@ -537,6 +537,33 @@ const getSessionDetails = async () => {
     return responseData;
 }
 
+const submitContactUsMsg = async () => {
+    const nameInputElem = document.querySelector('#name');
+    const emailInputElem = document.querySelector('#email');
+    const phoneInputElem = document.querySelector('#phone');
+    const bodyInputElem = document.querySelector('#body');
+
+    const newContactUsInfos = {
+        name: nameInputElem.value.trim(),
+        email: emailInputElem.value.trim(),
+        phone: phoneInputElem.value.trim(),
+        body: bodyInputElem.value.trim(),
+    }
+
+    const res = await fetch(`http://localhost:4000/v1/contact`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newContactUsInfos),
+    });
+
+    const result = await res.json();
+
+    console.log(res);
+    console.log(result);
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -550,5 +577,6 @@ export {
     coursesSorting,
     getCourseDetails,
     getAndShowRelatedCourses,
-    getSessionDetails
+    getSessionDetails,
+    submitContactUsMsg
 };
