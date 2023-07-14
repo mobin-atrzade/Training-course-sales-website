@@ -568,6 +568,28 @@ const submitContactUsMsg = async () => {
     }
 }
 
+const createNewNewsLetter = async () => {
+    const newsLetterInput = document.querySelector('#news-letter-input');
+
+    const newNewsLetterEmail = {
+        email: newsLetterInput.value.trim()
+    }
+
+    const res = await fetch(`http://localhost:4000/v1/newsletters`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newNewsLetterEmail)
+    })
+
+    if (res.ok) {
+        showSwal("شما با موفقیت در خبرنامه سبزلرن عضو شدید", "success", "متوجه شدم", (result) => {
+            location.href = "index.html"
+        });
+    }
+}
+
 export {
     showUserNameInNavbar,
     renderTopbarMenus,
@@ -582,5 +604,6 @@ export {
     getCourseDetails,
     getAndShowRelatedCourses,
     getSessionDetails,
-    submitContactUsMsg
+    submitContactUsMsg,
+    createNewNewsLetter
 };

@@ -50,6 +50,32 @@
   display: block;
   margin-bottom: 1rem;
 }
+.footer-widgets__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.footer-widgets__input {
+  height: 3.5rem;
+  border: 1px solid #b8b8b8;
+  border-radius: 0 0.3rem 0.3rem 0;
+  font-size: 1.3rem;
+  width: 100%;
+}
+.footer-widgets__btn {
+  border: none;
+  background-color: #7d7e7f;
+  border-radius: 0.3rem 0 0 0.3rem;
+  color: var(--white-color);
+  font-size: 1.2rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  transition: 300ms all ease;
+}
+.footer-widgets__btn:hover {
+  background-color: var(--primary-color);
+}
 .footer__copyright {
   display: flex;
   align-items: center;
