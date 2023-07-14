@@ -4,7 +4,8 @@ import {
 import {
     getToken,
     getUrlParams,
-    isLogin
+    isLogin,
+    showSwal
 } from "./utils.js";
 
 const showUserNameInNavbar = () => {
@@ -558,10 +559,13 @@ const submitContactUsMsg = async () => {
         body: JSON.stringify(newContactUsInfos),
     });
 
-    const result = await res.json();
-
-    console.log(res);
-    console.log(result);
+    if (res.status === 201) {
+        showSwal("پیغام شما با موفقیت ارسال شد", "success", "ورود به پنل", (result) => {
+            location.href = "index.html"
+        });
+    } else {
+        showSwal("مشکلی در ارسال پیغام وجود دارد \n لطفا بعدا تست کنید", "error", "ای بابا", () => {});
+    }
 }
 
 export {
