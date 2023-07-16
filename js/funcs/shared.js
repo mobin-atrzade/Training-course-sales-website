@@ -196,23 +196,23 @@ const getAndShowArticles = async () => {
     articles.splice(0, 6).forEach((article) => {
         articlesWrapper.insertAdjacentHTML('beforeend', `
             <div class="col-4">
-            <div class="article-card">
-                <div class="article-card__header">
-                    <a href="#" class="article-card__link-img">
-                        <img src=http://localhost:4000/courses/covers/${article.cover} class="article-card__img" alt="Article Cover" />
-                    </a>
-                </div>
-                <div class="article-card__content">
-                    <a href="#" class="article-card__link">
-                        ${article.title}
-                    </a>
-                    <p class="article-card__text">
-                        ${article.description}
-                    </p>
-                    <a href="#" class="article-card__btn">بیشتر بخوانید</a>
+                <div class="article-card">
+                    <div class="article-card__header">
+                        <a href="#" class="article-card__link-img">
+                            <img src=http://localhost:4000/courses/covers/${article.cover} class="article-card__img" alt="Article Cover" />
+                        </a>
+                    </div>
+                    <div class="article-card__content">
+                        <a href="#" class="article-card__link">
+                            ${article.title}
+                        </a>
+                        <p class="article-card__text">
+                            ${article.description}
+                        </p>
+                        <a href="#" class="article-card__btn">بیشتر بخوانید</a>
+                    </div>
                 </div>
             </div>
-        </div>
         `)
     })
     return articles;
@@ -649,6 +649,80 @@ const createNewNewsLetter = async () => {
     }
 }
 
+const globalSearch = async () => {
+    const searchValue = getUrlParams('value');
+    const coursesSearchResultWrapper = document.querySelector('#courses-container');
+    const articlesSearchResultWrapper = document.querySelector('#articles-wrapper');
+
+    const res = await fetch(`http://localhost:4000/v1/search/${searchValue}`);
+    const data = await res.json();
+
+    data.allResultCourses.forEach(course => {
+        coursesSearchResultWrapper.insertAdjacentHTML('beforeend', `
+            <div class="col-4">
+                <div class="course-box">
+                    <a href="course.html?name=${course.shortName}">
+                        <img src=http://localhost:4000/courses/covers/${course.cover} alt="course img" class="course-box__img" />
+                    </a>
+                    <div class="course-box__main">
+                        <a href="course.html?name=${course.shortName}" class="course-box__title">${course.name}</a>
+                        <div class="course-box__rating-teacher">
+                            <div class="course-box__teacher">
+                                <i class="fas fa-chalkboard-teacher course-box__teacher-icon"></i>
+                                <a href="#" class="course-box__teacher-link">محمد امین سعیدی راد</a>
+                            </div>
+                            <div class="course-box__rating">
+                                <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                                <img src="images/svgs/star_fill.svg" alt="rating" class="course-box__star">
+                            </div>
+                        </div>
+                        <div class="course-box__status">
+                            <div class="course-box__users">
+                                <i class="fas fa-users course-box__users-icon"></i>
+                                <span class="course-box__users-text">${course.registers}</span>
+                            </div>
+                            <span class="course-box__price">${course.price === 0 ? "رایگان" : course.price.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <div class="course-box__footer">
+                        <a href="#" class="course-box__footer-link">
+                            مشاهده اطلاعات
+                            <i class="fas fa-arrow-left course-box__footer-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `)
+    })
+
+    data.allResultArticles.forEach(article => {
+        articlesSearchResultWrapper.insertAdjacentHTML('beforeend', `
+            <div class="col-4">
+                <div class="article-card">
+                    <div class="article-card__header">
+                        <a href="#" class="article-card__link-img">
+                            <img src=http://localhost:4000/courses/covers/${article.cover} class="article-card__img" alt="Article Cover" />
+                        </a>
+                    </div>
+                    <div class="article-card__content">
+                        <a href="#" class="article-card__link">
+                            ${article.title}
+                        </a>
+                        <p class="article-card__text">
+                            ${article.description}
+                        </p>
+                        <a href="#" class="article-card__btn">بیشتر بخوانید</a>
+                    </div>
+                </div>
+            </div>
+        `)
+    })
+    return data;
+}
+
 
 
 export {
@@ -666,5 +740,6 @@ export {
     getAndShowRelatedCourses,
     getSessionDetails,
     submitContactUsMsg,
-    createNewNewsLetter
+    createNewNewsLetter,
+    globalSearch
 };
