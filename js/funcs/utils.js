@@ -38,7 +38,7 @@ const searchInArray = (array, searchProperty, searchValue) => {
 const addParamToUrl = (param, value) => {
     let url = new URL(location.href);
     let searchParams = url.searchParams;
-    
+
     searchParams.set(param, value);
     url.search = searchParams.toString();
     location.href = url.toString();
