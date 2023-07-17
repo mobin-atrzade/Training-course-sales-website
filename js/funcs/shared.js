@@ -28,7 +28,7 @@ const renderTopbarMenus = async () => {
 
     const res = await fetch(`http://localhost:4000/v1/menus/topbar`);
     const topBarMenus = await res.json();
-
+    console.log(topBarMenus);
     topBarList.innerHTML = "";
     const shuffledArray = topBarMenus.sort((a, b) => 0.5 - Math.random());
     shuffledArray.splice(0, 6).map(menu => {
