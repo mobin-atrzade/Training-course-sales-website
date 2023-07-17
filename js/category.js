@@ -6,8 +6,11 @@ import {
 import {
     searchInArray,
     paginateItems,
-    getUrlParams
+    getUrlParams,
+    addParamToUrl
 } from "./funcs/utils.js";
+
+window.addParamToUrl = addParamToUrl;
 
 window.addEventListener('load', () => {
     getAndShowCategoryCourses().then(responseCourses => {
