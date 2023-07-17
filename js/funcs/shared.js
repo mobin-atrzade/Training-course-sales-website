@@ -736,6 +736,35 @@ const globalSearch = async () => {
     return data;
 }
 
+const submitComment = async () => {
+    const commentTextareaElem = document.querySelector('.comments__score-input-respond');
+    const commentScoreElem = document.querySelector('#comment-score');
+    let score = 5;
+    let courseShortName = getUrlParams('name');
+
+    commentScoreElem.addEventListener('change', (event) => {
+        score = event.target.value;
+    })
+
+    const newCommentInfos = {
+        body: commentTextareaElem.value.trim(),
+        courseShortName,
+        score
+    }
+
+    const res = await fetch(`http://localhost:4000/v1/comments`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${getToken()}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newCommentInfos)
+    })
+    if (res.ok) {
+        showSwal('کامنت مورد نظر شما با موفقیت ثبت شد', 'success', 'خیلیم عالی', () => {})
+    }
+}
+
 
 export {
     showUserNameInNavbar,
@@ -753,5 +782,6 @@ export {
     getSessionDetails,
     submitContactUsMsg,
     createNewNewsLetter,
-    globalSearch
+    globalSearch,
+    submitComment
 };
