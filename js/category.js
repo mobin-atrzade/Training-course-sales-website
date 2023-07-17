@@ -4,7 +4,8 @@ import {
     inssertCourseBoxHtmlTemplate
 } from "./funcs/shared.js";
 import {
-    searchInArray
+    searchInArray,
+    paginateItems
 } from "./funcs/utils.js";
 
 window.addEventListener('load', () => {
@@ -71,6 +72,13 @@ window.addEventListener('load', () => {
             `)
             }
         })
+
+        // Handle Pagination
+        const coursesPaginationWrapper = document.querySelector(
+            ".courses-pagination__list"
+        );
+        paginateItems(courses, 3, coursesPaginationWrapper, 1)
+
     })
 
 })

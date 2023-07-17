@@ -35,6 +35,25 @@ const searchInArray = (array, searchProperty, searchValue) => {
     return outputArray;
 }
 
+const paginateItems = (array, itemsPerPage, paginateParentElem, currentPage) => {
+    paginateParentElem.innerHTML = ''
+    let endIndex = itemsPerPage * currentPage
+    let startIndex = endIndex - itemsPerPage
+    let paginatedItems = array.slice(startIndex, endIndex)
+    let paginatedCount = Math.ceil(array.length / itemsPerPage)
+
+    for (let i = 1; i < paginatedCount + 1; i++) {
+        paginateParentElem.insertAdjacentHTML('beforeend', `
+          <div class="courses-pagination__item">
+            <a href="#" class="courses-pagination__link">
+              ${i}
+            </a>
+          </div>
+      `)
+    }
+    return paginatedItems
+}
+
 export {
     showSwal,
     saveIntoLocalStorage,
@@ -42,5 +61,6 @@ export {
     getToken,
     isLogin,
     getUrlParams,
-    searchInArray
+    searchInArray,
+    paginateItems
 };
