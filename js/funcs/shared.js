@@ -227,7 +227,7 @@ const getAndShowNavbarMenus = async () => {
     menus.forEach((menu) => {
         menusWrapper.insertAdjacentHTML('beforeend', `
             <li class="main-header__item">
-                <a href=category.html?cat=${menu.href} class="main-header__link">${menu.title}   
+                <a href=category.html?cat=${menu.href}&page=1 class="main-header__link">${menu.title}   
                 ${menu.submenus.length !== 0 ? `
                             <i class="fas fa-angle-down main-header__link-icon"></i>
                             <ul class="main-header__dropdown">

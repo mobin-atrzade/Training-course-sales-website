@@ -5,7 +5,8 @@ import {
 } from "./funcs/shared.js";
 import {
     searchInArray,
-    paginateItems
+    paginateItems,
+    getUrlParams
 } from "./funcs/utils.js";
 
 window.addEventListener('load', () => {
@@ -77,8 +78,9 @@ window.addEventListener('load', () => {
         const coursesPaginationWrapper = document.querySelector(
             ".courses-pagination__list"
         );
-        paginateItems(courses, 3, coursesPaginationWrapper, 1)
-
+        const currentPage = getUrlParams('page');
+        const shownCourses = paginateItems(courses, 3, coursesPaginationWrapper, currentPage);
+        inssertCourseBoxHtmlTemplate([...shownCourses], coursesShowType, categoryCoursesWrapper);
     })
 
 })
