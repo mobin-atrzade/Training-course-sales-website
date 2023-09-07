@@ -9,8 +9,14 @@ window.addEventListener('load', () => {
     const adminNameElem = $.querySelector('#admin-name');
     getAdminInfos().then(admin => {
         console.log(admin);
-        
-        adminNameElem.innerHTML = admin.name;
-        adminWelcomeNameElem.innerHTML = admin.name;
+
+        // Protect Cms Routes
+        if (admin.role === 'ADMIN') {
+            // Show Admin Name In Cms HomePage
+            adminNameElem.innerHTML = admin.name;
+            adminWelcomeNameElem.innerHTML = admin.name;
+        } else {
+            location.replace('../../login.html');
+        }
     })
 })
