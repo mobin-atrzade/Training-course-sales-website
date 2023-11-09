@@ -45,7 +45,7 @@
                                 <input type="text" class="search-bar" placeholder="جستجو...">
                             </div>
                             <div class="home-notification">
-                                <button type="button">
+                                <button type="button" id="notifications-icon">
                                     <i class="far fa-bell"></i>
                                 </button>
                             </div>
@@ -81,14 +81,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="mode">
-                                <ul class="mode-list">
-                                    <div class="mode-list-item mode-red"></div>
-                                    <div class="mode-list-item mode-blue"></div>
-                                    <div class="mode-list-item mode-dark"></div>
-                                    <div class="mode-list-item mode-light"></div>
-                                </ul>
-                            </div>
+                           
                         </div>
                         <div class="home-left">
                             <div class="home-profile">
@@ -98,7 +91,7 @@
                                     </a>
                                 </div>
                                 <div class="home-profile-name">
-                                    <a href="#">احسان خورمهر</a>
+                                    <a href="#" id="admin-name"></a>
                                 </div>
                                 <div class="home-profile-icon">
                                     <i class="fas fa-angle-down"></i>
@@ -137,7 +130,8 @@
                                         </td>
                                         <td id="id">323</td>
                                         <td id="name">
-                                          <a href="file:///D:/Project/Admin_Panel/Product/index.html?id=${id}">لپ تاپ</a>
+                                            <a href="file:///D:/Project/Admin_Panel/Product/index.html?id=${id}">لپ
+                                                تاپ</a>
                                         </td>
                                         <td id="number">10</td>
                                         <td id="condition">موجود</td>
@@ -170,6 +164,8 @@
     <script src="vendor/swiperSlider/swiper.js"></script>
     <script src="js/custom.js"></script>
     <script src="js/script.js"></script>
+    <script src="../../js/panel/shared.js" type="module"></script>
+    <script src="../../js/panel/courses.js" type="module"></script>
 </body>
 
 </html>

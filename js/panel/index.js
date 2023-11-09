@@ -11,6 +11,7 @@ const $ = document;
 window.seenNotification = seenNotification;
 
 window.addEventListener('load', () => {
+    const adminWelcomeNameElem = $.querySelector('#admin-welcome-name');
     const adminNameElem = $.querySelector('#admin-name');
     const notificationsIconElem = $.querySelector('#notifications-icon');
     const notificationsBoxElem = $.querySelector('.home-notification-modal');
@@ -21,6 +22,7 @@ window.addEventListener('load', () => {
         if (admin.role === 'ADMIN') {
             // Show Admin Name In Cms HomePage
             adminNameElem.innerHTML = admin.name;
+            adminWelcomeNameElem.innerHTML = admin.name;
         } else {
             location.replace('../../login.html');
         }

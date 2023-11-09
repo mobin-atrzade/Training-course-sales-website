@@ -6,7 +6,6 @@ const insertNotificationHtmlTemplate = (notifications) => {
 
     const NotificationModalListElem = document.querySelector('.home-notification-modal-list');
 
-
     NotificationModalListElem.innerHTML = '';
     if (notifications.length) {
         notifications.forEach(notification => {
