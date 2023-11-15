@@ -1,9 +1,9 @@
 import {
-    getAllCourses
+    getAllCourses,
+    createNewCourse
 } from "../panel/func/courses.js";
 
 window.addEventListener('load', () => {
-    getAllCourses().then(data => {
-        console.log(data);
-    })
+    getAllCourses();
+    createNewCourse();
 })
