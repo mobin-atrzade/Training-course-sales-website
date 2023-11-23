@@ -1,3 +1,11 @@
+import {
+    getToken
+} from '../../funcs/utils.js';
+
+let categoryID = -1;
+let status = "start";
+let courseCover = null;
+
 const getAllCourses = async () => {
     const coursesTabelElem = document.querySelector('.table tbody');
 
@@ -34,15 +42,14 @@ const getAllCourses = async () => {
     return courses;
 }
 
-const createNewCourse = async () => {
+const prepareCreateCourseForm = async () => {
     const categoryListElem = document.querySelector('.category-list');
-
-    let categoryID = -1;
+    const courseStatusPresellElem = document.querySelector('#presell');
+    const courseStatusStartElem = document.querySelector('#start');
+    const courseCoverElem = document.querySelector('#course-cover');
 
     const res = await fetch(`http://localhost:4000/v1/category`);
     const categories = await res.json();
-
-    console.log(categories);
 
     categories.forEach(category => {
         categoryListElem.insertAdjacentHTML('beforeend', `
@@ -50,13 +57,44 @@ const createNewCourse = async () => {
         `)
     })
 
-    categoryListElem.addEventListener('change', event => {
-        categoryID = event.target.value;
-        console.log(categoryID);
-    });
+    categoryListElem.addEventListener('change', (event) => categoryID = event.target.value);
+    courseStatusPresellElem.addEventListener('change', event => status = event.target.value);
+    courseStatusStartElem.addEventListener('change', event => status = event.target.value);
+
+    courseCoverElem.addEventListener('change', event => (courseCover = event.target.files[0]));
+
+}
+
+const createNewCourse = async () => {
+
+    const courseNameElem = document.querySelector('#course-name');
+    const coursePriceElem = document.querySelector('#course-price');
+    const courseDescriptionElem = document.querySelector('#course-description');
+    const courseShortNameElem = document.querySelector('#course-shortname');
+    const courseSupportElem = document.querySelector('#course-support');
+
+    const formData = new FormData();
+
+    formData.append('name', courseNameElem.value.trim());
+    formData.append('price', coursePriceElem.value.trim());
+    formData.append('description', courseDescriptionElem.value.trim());
+    formData.append('shortName', courseShortNameElem.value.trim());
+    formData.append('support', courseSupportElem.value.trim());
+    formData.append('categoryID', categoryID);
+    formData.append('status', status);
+    formData.append('cover', courseCover);
+
+    const res = await fetch(`http://localhost:4000/v1/courses`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${getToken()}`
+        },
+        body: formData
+    })
 }
 
 export {
     getAllCourses,
-    createNewCourse
+    createNewCourse,
+    prepareCreateCourseForm
 }
