@@ -1,5 +1,6 @@
 import {
-    getToken
+    getToken,
+    showSwal
 } from '../../funcs/utils.js';
 
 let categoryID = -1;
@@ -8,6 +9,7 @@ let courseCover = null;
 
 const getAllCourses = async () => {
     const coursesTabelElem = document.querySelector('.table tbody');
+    coursesTabelElem.innerHTML = '';
 
     const res = await fetch(`http://localhost:4000/v1/courses`);
     const courses = await res.json();
@@ -58,11 +60,10 @@ const prepareCreateCourseForm = async () => {
     })
 
     categoryListElem.addEventListener('change', (event) => categoryID = event.target.value);
-    courseStatusPresellElem.addEventListener('change', event => status = event.target.value);
-    courseStatusStartElem.addEventListener('change', event => status = event.target.value);
+    courseStatusPresellElem.addEventListener('change', (event) => status = event.target.value);
+    courseStatusStartElem.addEventListener('change', (event) => status = event.target.value);
 
-    courseCoverElem.addEventListener('change', event => (courseCover = event.target.files[0]));
-
+    courseCoverElem.addEventListener('change', (event) => (courseCover = event.target.files[0]));
 }
 
 const createNewCourse = async () => {
@@ -89,8 +90,14 @@ const createNewCourse = async () => {
         headers: {
             Authorization: `Bearer ${getToken()}`
         },
-        body: formData
+        body: formData,
     })
+
+    if (res.ok) {
+        showSwal("دوره جدید با موفقیت ساخته شد", "success", "خیلی هم عالی", () => {
+            getAllCourses();
+        });
+    }
 }
 
 export {
