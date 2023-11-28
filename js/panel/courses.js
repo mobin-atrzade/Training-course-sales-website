@@ -1,12 +1,15 @@
 import {
-    getAllCourses,
     createNewCourse,
-    prepareCreateCourseForm
+    getAllCourses,
+    prepareCreateCourseForm,
+    removeCourse
 } from "./func/courses.js";
+
+window.removeCourse = removeCourse;
 
 window.addEventListener("load", () => {
 
-    let createCourseBtn = document.querySelector('#create-course-btn');
+    const createCourseBtn = document.querySelector('#create-course-btn');
 
     getAllCourses();
     prepareCreateCourseForm();
@@ -14,5 +17,5 @@ window.addEventListener("load", () => {
     createCourseBtn.addEventListener("click", (event) => {
         event.preventDefault();
         createNewCourse();
-    })
+    });
 })

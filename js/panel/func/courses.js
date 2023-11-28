@@ -35,7 +35,7 @@ const getAllCourses = async () => {
                     <button type="button" class="btn btn-primary" id="edit-btn">ویرایش</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger" id="delete-btn">حذف</button>
+                    <button type="button" class="btn btn-danger" onclick="removeCourse('${course._id}')" id="delete-btn">حذف</button>
                 </td>
             </tr>
         `)
@@ -100,8 +100,27 @@ const createNewCourse = async () => {
     }
 }
 
+const removeCourse = async (courseID) => {
+    showSwal("آیا از حذف دوره اطمینان دارید؟", "warning", ["نه", "آره"], async (result) => {
+        if (result) {
+            const res = await fetch(`http://localhost:4000/v1/courses/${courseID}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            });
+            if (res.ok) {
+                showSwal("دوره مدنظر با موفقیت حذف شد", "success", "خیلی هم عالی", () => {
+                    getAllCourses();
+                })
+            }
+        }
+    })
+}
+
 export {
     getAllCourses,
     createNewCourse,
-    prepareCreateCourseForm
+    prepareCreateCourseForm,
+    removeCourse
 }
