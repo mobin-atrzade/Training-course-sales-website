@@ -7,6 +7,7 @@ let parentMenuId = undefined;
 
 const getAndShowAllMenus = async () => {
     const menusWrapperElem = document.querySelector('.table tbody');
+    menusWrapperElem.innerHTML = '';
 
     const res = await fetch(`http://localhost:4000/v1/menus/all`);
     const menus = await res.json();
@@ -24,7 +25,7 @@ const getAndShowAllMenus = async () => {
                 <button type="button" class="btn btn-primary edit-btn">ویرایش</button>
             </td>
             <td>
-                <button type="button" class="btn btn-danger delete-btn">حذف</button>
+                <button type="button" onclick="removeMenu('${menu._id}')" class="btn btn-danger delete-btn">حذف</button>
             </td>
         </tr>
         `)
@@ -73,8 +74,29 @@ const createNewMenu = async () => {
 
 }
 
+const removeMenu = async (menuId) => {
+
+    showSwal("آیا از حذف منو اطمینان دارید؟", "warning", ["نه", "آره"], async (result) => {
+        if (result) {
+            const res = await fetch(`http://localhost:4000/v1/menus/${menuId}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            })
+            if (res.ok) {
+                showSwal("منوی مورد نظر با موفقیت حذف شد", "success", "خیلی هم عالی", () => {
+                    getAndShowAllMenus();
+                })
+            }
+        }
+    })
+    
+}
+
 export {
     getAndShowAllMenus,
     createNewMenu,
-    prepareCreateMenuForm
+    prepareCreateMenuForm,
+    removeMenu
 };
