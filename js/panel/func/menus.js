@@ -1,4 +1,8 @@
+import {
+    getToken
+} from '../../funcs/utils.js';
 
+let parentMenuId = undefined;
 
 const getAndShowAllMenus = async () => {
     const menusWrapperElem = document.querySelector('.table tbody');
@@ -28,6 +32,42 @@ const getAndShowAllMenus = async () => {
     return menus;
 }
 
+const prepareCreateMenuForm = async () => {
+    const parentMenusElem = document.querySelector('#parent-menus');
+    
+    parentMenusElem.addEventListener('change', event => parentMenuId = event.target.value);
+
+    const res = await fetch(`http://localhost:4000/v1/menus/`);
+    const menus = await res.json();
+    menus.forEach(menu => {
+        parentMenusElem.insertAdjacentHTML('beforeend', `
+            <option value="${menu._id}">${menu.title}</option>
+        `)
+    })
+}
+
+const createNewMenu = async () => {
+    const titleInputElem = document.querySelector('#title');
+    const hrefInputElem = document.querySelector('#href');
+
+    const newMenuInfos = {
+        title: titleInputElem.value.trim(),
+        href: hrefInputElem.value.trim(),
+        parent: parentMenuId
+    }
+    const res = await fetch(`http://localhost:4000/v1/menus/`, {
+        method: "POST",
+        headers: {
+            Authorization: `Bearer ${getToken()}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newMenuInfos)
+    })
+
+}
+
 export {
-    getAndShowAllMenus
+    getAndShowAllMenus,
+    createNewMenu,
+    prepareCreateMenuForm
 };

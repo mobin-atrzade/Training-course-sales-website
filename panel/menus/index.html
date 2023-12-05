@@ -76,31 +76,28 @@
             <div class="container-fluid" id="home-content">
                 <div class="container">
                     <div class="home-title">
-                        <span>افزودن کاربر جدید</span>
+                        <span>افزودن منوی جدید</span>
                     </div>
                     <form class="form">
                         <div class="col-6">
                             <div class="name input">
                                 <label class="input-title">عنوان</label>
-                                <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
+                                <input type="text" id="title" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
+                                <span class="error-message text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="name input">
+                                <label class="input-title">مقصد</label>
+                                <input type="text" id="href" isValid="false" placeholder="لطفا مقصد را وارد کنید...">
                                 <span class="error-message text-danger"></span>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="name input">
                                 <label class="input-title">عنوان</label>
-                                <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید...">
-                                <span class="error-message text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="name input">
-                                <label class="input-title">عنوان</label>
-                                <select class="select">
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
-                                    <option value="menu">منو</option>
+                                <select class="select" id="parent-menus">
+                                    <option value="-1">دوره پرنت را انتخاب نمایید</option>
                                 </select>
                                 <!-- <input type="text" isValid="false" placeholder="لطفا عنوان را وارد کنید..."> -->
                                 <span class="error-message text-danger"></span>
@@ -110,7 +107,7 @@
                             <div class="bottom-form">
 
                                 <div class="submit-btn">
-                                    <input type="submit" value="افزودن">
+                                    <input type="submit" id="create-menu-btn" value="افزودن">
                                 </div>
                             </div>
                         </div>
