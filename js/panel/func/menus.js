@@ -1,5 +1,6 @@
 import {
-    getToken
+    getToken,
+    showSwal
 } from '../../funcs/utils.js';
 
 let parentMenuId = undefined;
@@ -34,7 +35,7 @@ const getAndShowAllMenus = async () => {
 
 const prepareCreateMenuForm = async () => {
     const parentMenusElem = document.querySelector('#parent-menus');
-    
+
     parentMenusElem.addEventListener('change', event => parentMenuId = event.target.value);
 
     const res = await fetch(`http://localhost:4000/v1/menus/`);
@@ -63,6 +64,12 @@ const createNewMenu = async () => {
         },
         body: JSON.stringify(newMenuInfos)
     })
+
+    if (res.ok) {
+        showSwal("منوی جدید با موفقیت ساخته شد", "success", "خیلی هم عالی", () => {
+            getAndShowAllMenus();
+        })
+    }
 
 }
 
