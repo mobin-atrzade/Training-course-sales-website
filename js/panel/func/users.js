@@ -1,5 +1,6 @@
 import {
-    getToken
+    getToken,
+    showSwal
 } from "../../funcs/utils.js";
 
 const getAndShowAllUsers = async () => {
@@ -27,7 +28,7 @@ const getAndShowAllUsers = async () => {
                     <button type="button" class="btn btn-primary edit-btn">ویرایش</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger delete-btn">حذف</button>
+                    <button type="button" onclick="removeUser('${user._id}')" class="btn btn-danger delete-btn">حذف</button>
                 </td>
                 <td>
                     <button type="button" class="btn btn-danger delete-btn">بن</button>
@@ -37,6 +38,25 @@ const getAndShowAllUsers = async () => {
     })
 }
 
+const removeUser = async (userID) => {
+    showSwal("آیا از حذف کاربر اطمینان دارید؟", "warning", ["نه", "آره"], async (result) => {
+        if (result) {
+            const res = await fetch(`http://localhost:4000/v1/users/${userID}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            })
+            if (res.ok) {
+                showSwal("کاربر با موفقیت حذف شد", "success", "خیلی هم عالی", () => {
+                    getAndShowAllUsers();
+                });
+            }
+        }
+    })
+}
+
 export {
-    getAndShowAllUsers
+    getAndShowAllUsers,
+    removeUser
 }
