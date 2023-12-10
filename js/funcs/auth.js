@@ -34,9 +34,12 @@ const register = () => {
         });
       } else if (res.status === 409) {
         showSwal("نام کاربری یا ایمیل قبلا استفاده شده", "error", "تصحیح اطلاعات", () => {});
+      } else if (res.status === 403) {
+        showSwal("متاسفانه این شماره تماس بن شده است", "error", "تصحیح اطلاعات", () => {});
       }
       return res.json();
     })
+
     .then((result) => {
       saveIntoLocalStorage('user', {
         token: result.accessToken

@@ -31,7 +31,7 @@ const getAndShowAllUsers = async () => {
                     <button type="button" onclick="removeUser('${user._id}')" class="btn btn-danger delete-btn">حذف</button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger delete-btn">بن</button>
+                    <button type="button" onclick="banUser('${user._id}')" class="btn btn-danger delete-btn">بن</button>
                 </td>
             </tr>
         `)
@@ -56,7 +56,24 @@ const removeUser = async (userID) => {
     })
 }
 
+const banUser = async (userID) => {
+    showSwal("آیا از بن کاربر اطمینان دارید؟", "error", ["نه", "آره"], async (result) => {
+        if (result) {
+            const res = await fetch(`http://localhost:4000/v1/users/ban/${userID}`, {
+                method: "PUT",
+                headers: {
+                    Authorization: `Bearer ${getToken()}`
+                }
+            })
+            if (res.ok) {
+                showSwal("کاربر با موفقیت بن شد", "success", "خیلی هم عالی", () => {});
+            }
+        }
+    })
+}
+
 export {
     getAndShowAllUsers,
-    removeUser
+    removeUser,
+    banUser
 }
