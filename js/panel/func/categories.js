@@ -1,3 +1,8 @@
+import {
+    getToken,
+    showSwal
+} from "../../funcs/utils.js";
+
 const getAndShowAllCategories = async () => {
     const categoriesListElem = document.querySelector('.table tbody');
     categoriesListElem.innerHTML = '';
@@ -20,15 +25,44 @@ const getAndShowAllCategories = async () => {
             </tr>
         `)
     })
-
-    console.log(categories);
 }
 
 const removeCategory = async (categoryID) => {
     console.log(categoryID);
 }
 
+const createCategory = async () => {
+    const titleInputElem = document.querySelector('#title');
+    const nameInputElem = document.querySelector('#name');
+
+    const newCategoryInfos = {
+        title: titleInputElem.value.trim(),
+        name: nameInputElem.value.trim()
+    }
+
+    const res = await fetch(`http://localhost:4000/v1/category`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${getToken()}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newCategoryInfos)
+    })
+
+    if (res.ok) {
+        showSwal(
+            "دسته بندی جدید با موفقیت ساخته شد",
+            "success",
+            "خیلی هم عالی",
+            () => {
+                getAndShowAllCategories()
+            }
+        )
+    }
+}
+
 export {
     getAndShowAllCategories,
-    removeCategory
+    removeCategory,
+    createCategory
 }
