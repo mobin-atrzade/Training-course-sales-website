@@ -28,6 +28,27 @@ const getAndShowAllCategories = async () => {
 }
 
 const removeCategory = async (categoryID) => {
+    showSwal(
+        "آیا از حذف دسته بندی اطمینان دارید؟",
+        "warning",
+        ["نه", "آره"],
+        async (result) => {
+            if (result) {
+                const res = await fetch(`http://localhost:4000/v1/category/${categoryID}`, {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${getToken()}`
+                    }
+                })
+
+                if (res.ok) {
+                    showSwal("دسته بندی مورد نظر با موفقیت حذف شد", "success", "خیلی هم عالی", () => {
+                        getAndShowAllCategories()
+                    })
+                }
+            }
+        }
+    )
     console.log(categoryID);
 }
 
